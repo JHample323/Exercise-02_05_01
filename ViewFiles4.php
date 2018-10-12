@@ -6,17 +6,17 @@
     <!--
     Exercise 02_05_01
     Author: Jaggar Hample
-    Date: 10/02/18  
-    Filename: ViewFiles3.php
+    Date: 10/05/18  
+    Filename: ViewFiles4.php
     -->
-    <title>View Files 3</title>
+    <title>View Files 4</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <script src="modernizr.custom.65897.js"></script>
 </head>
 
 <body>
-   <h2>View Files 3</h2>
+   <h2>View Files 4</h2>
     <?php
         $dir = "../Excercise-02_01_01";
         $dirEntries = scandir($dir);
@@ -33,14 +33,13 @@
                 $fullEntryName = $dir . "/" . $entry;
                 echo "<tr><td>";
                 if (is_file($fullEntryName)) {
-                    echo "<a href=\"$fullEntryName\">" . 
-                        htmlentities($entry) . "</a>"; 
+                    echo "<a href=\"FileDownloader.php?fileName=$entry\">" . htmlentities($entry) . "</a>"; 
                 }
                 else {
                     echo htmlentities($entry);
                 }
                 echo "</td><td align='center'>" . 
-                    fileowner($fullEntryName);
+                fileowner($fullEntryName);
                 if (is_file($fullEntryName)) {
                     $perms = fileperms($fullEntryName);
                     $perms = decoct($perms % 01000);

@@ -4,7 +4,7 @@
 
 <head>
     <!--
-    Project 02_05_01
+    Exercise 02_05_01
     Author: Jaggar Hample
     Date: 10/02/18  
     Filename: ViewFiles.php
@@ -18,6 +18,7 @@
 <body>
    <h2>View Files</h2>
     <?php
+    // Sets the directory
         $dir = "../Excercise-02_01_01";
         $openDir = opendir($dir);
         while ($curFile = readdir($openDir)) {
