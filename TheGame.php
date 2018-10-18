@@ -25,25 +25,22 @@
     </style>
    <h2>Player Login</h2>
     <?php
-    $dir = "./gamers";
-    if(is_dir($dir)){
-        if (isset($_POST['submit'])){
-            if (empty($_POST['name'])){
-                echo "Invalid player";
-            }
-        else {
-            echo "The was an error in the form";
-            }
-        }
-    }
+    // Global variable
+    $dir = "TheGamers.txt";
+    $players = fopen("TheGamers.txt", "a+") or die ("Unable to open file");
     ?>
-    <form>
+     <p>Gamers:</p>
+    <?php       
+    echo ($_POST['screen'] . "<br>\n");
+    fclose($players);
+    ?>
+    <form action="TheGame.php" method="post">
        <p>Username*: <input type="text" name="user" placeholder="JohnSmith123" required ></p>
        <p>Password*: <input type="password" name="pass" required></p>
        <p>Full Name*: <input type="text" name="name" placeholder="John Smith" required></p>
        <p>Email*: <input type="email" name="mail" placeholder="John@example.com" required></p>
        <p>Age*: <input type="number" name="age" required></p>
-       <p>Screen Name*: <input name="name" type="text" placeholder="JohnSmith" required></p>
+       <p>Screen Name*: <input name="screen" type="text" placeholder="JohnSmith" required></p>
        <p>Comments</p><textarea placeholder="Enter Text..."></textarea><br>
        <input type="submit">
        <p style="padding: 5px">* required</p>
